@@ -106,12 +106,16 @@
 			//finalTotal is the variable of the whole Total, the total of all items after taxes and discounts were calculated
 			let finalTotal = 0;
 
-			const line_1_quant = document.querySelector("#line-1-quantity").value;
-			const line_1_price = document.querySelector("#line-1-price").value;
-			lineTotal = line_1_quant * line_1_price;
 
+			// grabs value entered into #line-1-quantity and assigns it to this variable 
+			const line_1_quant = document.querySelector("#line-1-quantity").value;
+			// grabs value entered into #line-1-price and assigns it to this variable 
+			const line_1_price = document.querySelector("#line-1-price").value;
+			// multiplies the two variables IE the values of quantity * price, so we can get the line total 
+			lineTotal = line_1_quant * line_1_price;
+			// grabs the value in #line-1 which is the line total and adds a $ before the number as well as rounding to 2 decimal points
 			document.querySelector("#line-1").innerHTML = "$ " + lineTotal.toFixed(2);
-			
+			// adds the line total to the other line totals so we get a sub total of all lines
 			subTotal += lineTotal; 
 
 			// console.log("calculating")
