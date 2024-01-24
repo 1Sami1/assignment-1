@@ -133,6 +133,11 @@
 			subTotal += lineTotal; 
 
 			//line 4
+			const line4_quant = document.querySelector('#line-4-quantity').value;
+			const line4_price = document.querySelector("#line-4-price").value;
+			lineTotal = line4_price * line4_quant;
+			document.querySelector("#line-4").innerHTML = "$ " + lineTotal.toFixed(2);
+			subTotal += lineTotal; 
 
 
 
