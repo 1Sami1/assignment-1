@@ -118,11 +118,22 @@
 			// adds the line total to the other line totals so we get a sub total of all lines
 			subTotal += lineTotal; 
 
+			// line 2 
 			const line2_quant = document.querySelector("#line-2-quantity").value;
 			const line2_price = document.querySelector("#line-2-price").value;
 			lineTotal = line2_quant * line2_price; 
 			document.querySelector("#line-2").innerHTML = "$ " + lineTotal.toFixed(2);
 			subTotal += lineTotal; 
+
+			// line 3
+			const line3_quant = document.querySelector('#line-3-quantity').value;
+			const line3_price = document.querySelector("#line-3-price").value;
+			lineTotal = line3_price * line3_quant;
+			document.querySelector("#line-3").innerHTML = "$ " + lineTotal.toFixed(2);
+			subTotal += lineTotal; 
+
+			//line 4
+
 
 
 
