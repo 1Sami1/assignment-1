@@ -95,6 +95,8 @@
 	<script>
 		// 
 		const calc_btn = document.querySelector('#calculate');
+		const taxValue = .12; 
+		const discountNum = .1;
 		
 	    function calculate() {
 
@@ -139,7 +141,23 @@
 			document.querySelector("#line-4").innerHTML = "$ " + lineTotal.toFixed(2);
 			subTotal += lineTotal; 
 
+			//line 5 
+			const line5_quant = document.querySelector('#line-5-quantity').value;
+			const line5_price = document.querySelector("#line-5-price").value;
+			lineTotal = line5_price * line5_quant;
+			document.querySelector("#line-5").innerHTML = "$ " + lineTotal.toFixed(2);
+			subTotal += lineTotal; 
 
+			// this is the subtotal line where it displays the subtotal 
+			document.querySelector("#sub-total").innerHTML = "$ " + subTotal.toFixed(2);
+
+			// tax calculations 
+			let tax = 0;
+			tax = subTotal * taxValue;
+			document.querySelector("#tax").innerHTML = "$ " + tax.toFixed(2);
+
+			let discount = (subTotal > 250) ? subTotal * discountNum : 0;
+			document.querySelector("")
 
 
 
@@ -162,7 +180,7 @@
                 
             */
 			
-			document.querySelector("#sub-total").innerHTML = "$ " + subTotal.toFixed(2);
+			
 	    }
 
 		calc_btn.addEventListener("click", calculate);
