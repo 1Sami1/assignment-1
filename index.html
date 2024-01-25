@@ -161,9 +161,11 @@
 			tax = subTotal * taxValue;
 			document.querySelector("#tax").innerHTML = "$ " + tax.toFixed(2);
 
-			finalTotal = (subTotal - discount) * tax; 
 			
-			document.querySelector("#total").innerHTML = "$ " + finalTotal.toFixed(2);
+			finalTotal = (subTotal - discount) + tax; 
+			
+			document.querySelector("#Total").innerHTML = "$ " + finalTotal.toFixed(2);
+
 			
 			
 	    }
