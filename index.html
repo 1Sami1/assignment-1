@@ -93,7 +93,7 @@
 	<div>NOTE: discounts of 10% are given to orders over $250</div>
 
 	<script>
-		// 
+		// storing the calculate button element in a variable
 		const calc_btn = document.querySelector('#calculate');
 		const taxValue = .12; 
 		const discountNum = .1;
@@ -115,61 +115,61 @@
 			const line_1_price = document.querySelector("#line-1-price").value;
 			// multiplies the two variables IE the values of quantity * price, so we can get the line total 
 			lineTotal = line_1_quant * line_1_price;
-			// grabs the value in #line-1 which is the line total and adds a $ before the number as well as rounding to 2 decimal points
+			// grabs the value in #line-1 which is the line total and adds a $ before the number as well as using the toFixed() to round to 2 decimal points
 			document.querySelector("#line-1").innerHTML = "$ " + lineTotal.toFixed(2);
-			// adds the line total to the other line totals so we get a sub total of all lines
+			// adds the line total to the other line totals so we get a sub total of all lines used
 			subTotal += lineTotal; 
 
-			// line 2 
+			// calculations for the second line of the calculator
 			const line2_quant = document.querySelector("#line-2-quantity").value;
 			const line2_price = document.querySelector("#line-2-price").value;
 			lineTotal = line2_quant * line2_price; 
 			document.querySelector("#line-2").innerHTML = "$ " + lineTotal.toFixed(2);
 			subTotal += lineTotal; 
 
-			// line 3
+			// calculations for the third line of the calculator
 			const line3_quant = document.querySelector('#line-3-quantity').value;
 			const line3_price = document.querySelector("#line-3-price").value;
 			lineTotal = line3_price * line3_quant;
 			document.querySelector("#line-3").innerHTML = "$ " + lineTotal.toFixed(2);
 			subTotal += lineTotal; 
 
-			//line 4
+			// calculations for the fourth line of the calculator
 			const line4_quant = document.querySelector('#line-4-quantity').value;
 			const line4_price = document.querySelector("#line-4-price").value;
 			lineTotal = line4_price * line4_quant;
 			document.querySelector("#line-4").innerHTML = "$ " + lineTotal.toFixed(2);
 			subTotal += lineTotal; 
 
-			//line 5 
+			// calculations for the 5th line of the calculator
 			const line5_quant = document.querySelector('#line-5-quantity').value;
 			const line5_price = document.querySelector("#line-5-price").value;
 			lineTotal = line5_price * line5_quant;
 			document.querySelector("#line-5").innerHTML = "$ " + lineTotal.toFixed(2);
 			subTotal += lineTotal; 
 
-			// this is the subtotal line where it displays the subtotal 
+			// this is the subtotal line where it displays the subtotal before taxes and discount
 			document.querySelector("#sub-total").innerHTML = "$ " + subTotal.toFixed(2);
 
-			// discount 
+			// this is the code for the discount application, used the ternary operator to apply the discount if the subtotal is greater than 250$ otherwise it displays 0
 			let discount = (subTotal > 250) ? subTotal * discountNum : 0;
 			document.querySelector("#discount").innerHTML = "$ " + discount.toFixed(2);
 
-			// tax calculations 
-
+			// made a tax variable to store the tax so we can use it and add it to the finalTotal later on
 			let tax = 0;
+			//calculating the tax by multiplying  the subtotal and the taxValue which is a variable that I had stored (0.12) in. 
 			tax = subTotal * taxValue;
+			// displaying the tax in the tax line
 			document.querySelector("#tax").innerHTML = "$ " + tax.toFixed(2);
 
-			
+			// the total calculating everything including taxes and discount if applied, storing the result in finalTotal
 			finalTotal = (subTotal - discount) + tax; 
-			
+			// displaying the total in the span with the id #total and rounding it to 2 decimal points with toFixed()
 			document.querySelector("#Total").innerHTML = "$ " + finalTotal.toFixed(2);
 
 			
-			
 	    }
-
+		// added an event listener to the Calculate button thats runs the function calculate() whenever the button is clicked
 		calc_btn.addEventListener("click", calculate);
 	
 	
